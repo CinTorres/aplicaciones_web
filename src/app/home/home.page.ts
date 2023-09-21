@@ -8,26 +8,27 @@ import'firebase/database';
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
+constructor(private alertController:AlertController) {}
 export class HomePage {
   direccion:any;
   ciudad:any;
   colonia:any;
   nombre:any;
   apellido:any;
+};
+ref.child(idUnico).set(datos).then()=>(
+  console.log('Guardado Exitosamente!');
 
-  constructor() {}
+)
+
   async guardarFormulario(){
-    const databaseRef = firebase.database().ref('/formulario');
-    const datos = {
-      direccion: this.direccion,
-      nombre: this.nombre,
-      ciudad: this.ciudad,
-      colonia: this.colonia,
-      apellido:this.apellido,
-    }
-    databaseRef.child(this.nombre).set(datos).then(()=>{
-    console.log("Subido Exitosamente!");
-  })
-    
+    const alerta = await this.alertController.create({
+      //titulo
+      //cuerpo
+      //botones
+      header: titulo,
+      message:mensaje,
+      buttons:['cerrar'],
+    })
+  
   }
-}
